@@ -40,11 +40,13 @@ const images = [
     }
 ];
 
+let activeImg = 0
+
 //appena apro la la pagina mi trovo davanti i contenuti appesi al carosello
 const imageContainer = document.querySelector(`#img-container`);
 const thumbnailContainer = document.querySelector(`#thumbnail-container`);
-console.log(imageContainer)
-console.log(thumbnailContainer)
+
+
 
 images.forEach((theme) => {
     //inserisco gli oggetti dell'array images nell'immagine grande del carosello con le chiavi corrette
@@ -67,8 +69,24 @@ images.forEach((theme) => {
 
     thumbnailContainer.innerHTML += thumbnailImg;
     console.log(theme)
+});
 
+//aggiungo la classe active alla prima immagine
+const allImages = document.querySelectorAll(`.image`);
+allImages[0].classList.add('image-active');
 
+//aggiungo la classe active alla prima thumbnail
+const allThumbnails = document.querySelectorAll(`.col-5`);
+allThumbnails[0].classList.add(`thumbnail-active`)
+
+//aggiungo un click event sulle frecce
+
+const arrowDown = document.querySelector(`#arrow-down`);
+arrowDown.addEventListener('click', function() {
+    //quando clicco tolgo la classe image-active a allImages[0] e tolgo la classe thumbnail-active a a allThumbnails[0]
+    images.forEach((theme) => {
+        allThumbnails[theme].classList.remove('image-active');
+    })
 })
 
-
+const arrowUp = document.querySelector(`#arrow-up`);
