@@ -41,7 +41,9 @@
 }
 
 .col-5{
-    height: calc(100% / 5);   
+    height: calc(100% / 5);
+    background-color: black; 
+    opacity: 0.5;  
 }
 
 /*-----------
@@ -84,9 +86,12 @@ img{
     text-align: right;
     bottom: 20px;
     right: 20px
-
-
 }
 
+.thumbnail-active{
+    opacity: 1;
+}
 
-
+.image-active{
+    display: block;
+}
