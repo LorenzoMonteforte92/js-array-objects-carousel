@@ -39,3 +39,41 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+//appena apro la la pagina mi trovo davanti i contenuti appesi al carosello
+const imageContainer = document.querySelector(`#img-container`);
+const thumbnailContainer = document.querySelector(`#thumbnail-container`);
+console.log(imageContainer)
+console.log(thumbnailContainer)
+
+images.forEach((theme) => {
+    //inserisco gli oggetti dell'array images nell'immagine grande del carosello con le chiavi corrette
+    let largeImg = `
+    <div class="col-80">
+        <img src="./${theme.image}" alt="">
+        <div class="description" >
+            <h1>${theme.title}</h1>
+            <h3>${theme.text}</h3>
+        </div>
+    </div>
+    `;
+    console.log(theme.image)
+    imageContainer.innerHTML += largeImg; 
+    
+    //inserisco gli oggetti dell'array images nelle thumbnails del carosello 
+    let thumbnailImg = `
+    <div class="col-5"><img src="./${theme.image}" alt=""></div>
+    `;
+    
+    thumbnailContainer.innerHTML += thumbnailImg;
+    console.log(theme)
+
+
+})
+
+images.forEach((theme) => {
+    const newLi = `ciao`;
+
+    thumbnailContainer.innerHTML += newLi;
+});
+
