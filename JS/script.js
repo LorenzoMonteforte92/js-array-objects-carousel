@@ -84,9 +84,32 @@ allThumbnails[0].classList.add(`thumbnail-active`)
 const arrowDown = document.querySelector(`#arrow-down`);
 arrowDown.addEventListener('click', function() {
     //quando clicco tolgo la classe image-active a allImages[0] e tolgo la classe thumbnail-active a a allThumbnails[0]
-    images.forEach((theme) => {
-        allThumbnails[theme].classList.remove('image-active');
-    })
+    document.querySelector(`.image.image-active`).classList.remove('image-active');
+    document.querySelector(`.col-5.thumbnail-active`).classList.remove('thumbnail-active');
+
+    if(activeImg < images.length - 1){
+        activeImg++
+    }else{
+        activeImg = 0
+    }
+    
+    allImages[activeImg].classList.add('image-active');
+    allThumbnails[activeImg].classList.add(`thumbnail-active`)
+
 })
 
 const arrowUp = document.querySelector(`#arrow-up`);
+arrowUp.addEventListener('click', function() {
+    document.querySelector(`.image.image-active`).classList.remove('image-active');
+    document.querySelector(`.col-5.thumbnail-active`).classList.remove('thumbnail-active');
+
+    if(activeImg > 0) {
+        activeImg--;
+    } else {
+        activeImg = images.length - 1;
+    }
+
+    allImages[activeImg].classList.add('image-active');
+    allThumbnails[activeImg].classList.add('thumbnail-active');
+
+})
